@@ -1,0 +1,1360 @@
+/* ==========================================================================
+   Variables y Configuración del Sistema de Diseño (Design Tokens)
+   ========================================================================== */
+:root {
+  /* Paleta de colores principal */
+  --bg-dark: #070908;
+  --bg-card: #101512;
+  --bg-input: #171f1b;
+  --dollar-green: #00A86B;
+  --dollar-green-glow: rgba(0, 168, 107, 0.4);
+  --dollar-green-dark: #00764a;
+  --ferrari-red: #E30A17;
+  --ferrari-red-glow: rgba(227, 10, 23, 0.45);
+  --ferrari-red-dark: #b8050e;
+  --gold: #FFD700;
+  --gold-glow: rgba(255, 215, 0, 0.4);
+  --gold-dark: #cca500;
+  
+  /* Tonos neutros */
+  --text-light: #F5F5F7;
+  --text-muted: #8E9E96;
+  --border-light: rgba(255, 255, 255, 0.08);
+  --border-green: rgba(0, 168, 107, 0.25);
+  
+  /* Fuentes */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  
+  /* Animaciones y Transiciones */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Dimensiones */
+  --header-height: 80px;
+  --border-radius-sm: 8px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 24px;
+}
+
+/* ==========================================================================
+   Estilos Base y Reseteos
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input {
+  font-family: inherit;
+}
+
+/* Barra de scroll personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-card);
+  border: 2px solid var(--bg-dark);
+  border-radius: var(--border-radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dollar-green);
+}
+
+/* ==========================================================================
+   Componentes Globales (Botones, Badges, Títulos)
+   ========================================================================== */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--dollar-green);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  color: var(--text-light);
+}
+
+.section-title.text-left {
+  text-align: left;
+}
+
+.section-description {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* Botones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: var(--border-radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-primary {
+  background-color: var(--ferrari-red);
+  color: var(--text-light);
+}
+
+.btn-primary:hover {
+  background-color: var(--ferrari-red-dark);
+  transform: translateY(-2px);
+}
+
+.btn-ferrari-glow {
+  box-shadow: 0 4px 15px var(--ferrari-red-glow);
+}
+
+.btn-ferrari-glow:hover {
+  box-shadow: 0 8px 25px var(--ferrari-red-glow);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-light);
+  border: 2px solid var(--border-light);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--text-light);
+  transform: translateY(-2px);
+}
+
+.btn-arrow {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--transition-fast);
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Badges */
+.badge-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  color: var(--gold);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.badge-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* ==========================================================================
+   Barra de Navegación (Header)
+   ========================================================================== */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 1000;
+  transition: all var(--transition-smooth);
+}
+
+.main-header.scrolled {
+  background: rgba(9, 12, 11, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-green);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  height: 70px;
+}
+
+.header-container {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.leprechaun-logo {
+  width: 50px;
+  height: 50px;
+  transition: transform var(--transition-smooth);
+}
+
+.logo-area:hover .leprechaun-logo {
+  transform: rotate(-5deg) scale(1.05);
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: 0.5px;
+  color: var(--text-light);
+}
+
+.brand-name .accent-text {
+  color: var(--dollar-green);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+  position: relative;
+  padding: 8px 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--gold);
+  transition: width var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--text-light);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--text-light);
+}
+
+.nav-btn-mobile {
+  display: none;
+}
+
+/* Botón menú móvil */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.mobile-menu-toggle .bar {
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-light);
+  transition: all var(--transition-fast);
+}
+
+/* ==========================================================================
+   Sección Principal (Hero Section)
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px 80px 24px;
+  background: url('assets/hero_car_wash.png') no-repeat center center/cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(7, 9, 8, 0.4) 0%, rgba(7, 9, 8, 0.95) 100%),
+              linear-gradient(90deg, rgba(0, 168, 107, 0.15) 0%, rgba(7, 9, 8, 0.6) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: 5.5rem;
+  line-height: 1.05;
+  letter-spacing: 2px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.highlight-gold {
+  color: var(--gold);
+  background: linear-gradient(135deg, var(--gold) 0%, #FFA751 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 40px rgba(255, 215, 0, 0.15);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+}
+
+/* Burbujas flotantes animadas */
+.bubbles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -60px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: floatUp 12s infinite linear;
+}
+
+.bubble:nth-child(1) { left: 10%; width: 40px; height: 40px; animation-delay: 0s; animation-duration: 10s; }
+.bubble:nth-child(2) { left: 25%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 14s; }
+.bubble:nth-child(3) { left: 40%; width: 60px; height: 60px; animation-delay: 1s; animation-duration: 16s; }
+.bubble:nth-child(4) { left: 60%; width: 30px; height: 30px; animation-delay: 4s; animation-duration: 11s; }
+.bubble:nth-child(5) { left: 75%; width: 50px; height: 50px; animation-delay: 3s; animation-duration: 15s; }
+.bubble:nth-child(6) { left: 85%; width: 25px; height: 25px; animation-delay: 6s; animation-duration: 13s; }
+.bubble:nth-child(7) { left: 50%; width: 35px; height: 35px; animation-delay: 7s; animation-duration: 12s; }
+.bubble:nth-child(8) { left: 95%; width: 45px; height: 45px; animation-delay: 5s; animation-duration: 17s; }
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.1) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Indicador de scroll */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  opacity: 0.7;
+}
+
+.mouse {
+  width: 24px;
+  height: 40px;
+  border: 2px solid var(--text-muted);
+  border-radius: 20px;
+  position: relative;
+}
+
+.wheel {
+  width: 4px;
+  height: 8px;
+  background-color: var(--dollar-green);
+  border-radius: 2px;
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollWheel 1.8s infinite ease-in-out;
+}
+
+.arrows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arrows span {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-bottom: 2px solid var(--text-muted);
+  border-right: 2px solid var(--text-muted);
+  transform: rotate(45deg);
+  margin: -2px;
+  animation: scrollArrow 1.8s infinite;
+}
+
+.arrows span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+@keyframes scrollWheel {
+  0% { transform: translate(-50%, 0); opacity: 1; }
+  100% { transform: translate(-50%, 15px); opacity: 0; }
+}
+
+@keyframes scrollArrow {
+  0% { opacity: 0; transform: rotate(45deg) translate(-5px, -5px); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: rotate(45deg) translate(5px, 5px); }
+}
+
+/* ==========================================================================
+   Sección del Simulador (Antes / Después)
+   ========================================================================== */
+.simulator-section {
+  background-color: var(--bg-dark);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.shine-slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16/10;
+  margin: 0 auto;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  border: 2px solid var(--border-green);
+  box-shadow: 0 25px 60px rgba(0, 168, 107, 0.1), 0 10px 30px rgba(0, 0, 0, 0.6);
+  user-select: none;
+  --position: 50%;
+}
+
+.slider-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('assets/hero_car_wash.png') no-repeat center center/cover;
+}
+
+/* Capa ANTES (Sucio/Opaco) */
+.layer-before {
+  /* Filtros para simular coche sucio y opaco */
+  filter: grayscale(40%) sepia(35%) brightness(40%) contrast(90%);
+}
+
+.dirty-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 30%, rgba(0, 0, 0, 0.3) 0%, transparent 40%),
+              radial-gradient(circle at 75% 70%, rgba(0, 0, 0, 0.4) 0%, transparent 50%),
+              linear-gradient(rgba(139, 69, 19, 0.15), rgba(139, 69, 19, 0.15)); /* Tinte lodoso */
+  backdrop-filter: blur(1px);
+}
+
+/* Efecto de jabón / espuma en el lado sucio */
+.soap-foam-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 15%, transparent 30%),
+              radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 20%, transparent 40%),
+              radial-gradient(circle at 45% 85%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.05) 12%, transparent 25%),
+              radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 18%, transparent 35%),
+              radial-gradient(circle at 25% 75%, rgba(255, 255, 255, 0.25) 0%, transparent 20%);
+}
+
+/* Capa DESPUÉS (Limpio/Brillante) */
+.layer-after {
+  /* Imagen original en toda su calidad */
+  clip-path: polygon(0 0, var(--position) 0, var(--position) 100%, 0 100%);
+  filter: saturate(1.15) brightness(1.05) contrast(1.05);
+}
+
+.clean-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 168, 107, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+  box-shadow: inset 0 0 100px rgba(0, 168, 107, 0.15);
+}
+
+/* Destellos dorados en la zona limpia */
+.sparkles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.sparkle {
+  position: absolute;
+  color: var(--gold);
+  font-size: 2rem;
+  text-shadow: 0 0 10px var(--gold-glow);
+  opacity: 0;
+  animation: shineGlow 4s infinite ease-in-out;
+}
+
+.sparkle.s1 { top: 20%; left: 15%; animation-delay: 0s; }
+.sparkle.s2 { top: 55%; left: 35%; animation-delay: 1.5s; font-size: 1.5rem; }
+.sparkle.s3 { top: 35%; left: 70%; animation-delay: 0.8s; }
+.sparkle.s4 { top: 70%; left: 80%; animation-delay: 2.2s; font-size: 1.2rem; }
+
+@keyframes shineGlow {
+  0%, 100% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.2) rotate(15deg); opacity: 1; }
+}
+
+/* Etiquetas */
+.layer-label {
+  position: absolute;
+  bottom: 24px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--border-light);
+  padding: 8px 16px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.label-before {
+  right: 24px;
+  color: var(--text-muted);
+}
+
+.label-after {
+  left: 24px;
+  color: var(--gold);
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+/* Línea de Desplazamiento y Manija */
+.slider-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--position);
+  width: 4px;
+  background: linear-gradient(to bottom, var(--ferrari-red), var(--gold), var(--dollar-green));
+  transform: translateX(-50%);
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.handle-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  background-color: var(--ferrari-red);
+  border: 3px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  box-shadow: 0 0 15px var(--ferrari-red-glow), 0 4px 10px rgba(0, 0, 0, 0.4);
+  cursor: ew-resize;
+  pointer-events: auto;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.handle-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  background-color: var(--ferrari-red-dark);
+}
+
+.handle-arrows {
+  width: 18px;
+  height: 18px;
+}
+
+/* ==========================================================================
+   Sección de Paquetes Promocionales
+   ========================================================================== */
+.packages-section {
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 20px;
+}
+
+.package-card {
+  position: relative;
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-lg);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-smooth);
+  overflow: hidden;
+}
+
+.package-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--border-light);
+  transition: background-color var(--transition-fast);
+}
+
+.package-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Efectos de brillo hover específicos */
+.package-card[data-package="Lavado Trébol"]:hover::before { background-color: var(--dollar-green); }
+.package-card[data-package="Lavado Trébol"]:hover { box-shadow: 0 15px 35px rgba(0, 168, 107, 0.1); border-color: rgba(0, 168, 107, 0.3); }
+
+.package-card[data-package="Detallado Arcoíris"]:hover::before { background-color: var(--ferrari-red); }
+.package-card[data-package="Detallado Arcoíris"]:hover { box-shadow: 0 15px 35px rgba(227, 10, 23, 0.1); border-color: rgba(227, 10, 23, 0.3); }
+
+/* Paquete Destacado (Pot of Gold) */
+.package-card.featured {
+  border: 2px solid var(--gold);
+  transform: scale(1.03);
+  box-shadow: 0 15px 35px rgba(255, 215, 0, 0.08);
+}
+
+.package-card.featured::before {
+  background: linear-gradient(90deg, var(--gold), #FFA751);
+  height: 6px;
+}
+
+.package-card.featured:hover {
+  transform: scale(1.03) translateY(-6px);
+  box-shadow: 0 20px 45px rgba(255, 215, 0, 0.15);
+}
+
+.featured-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: linear-gradient(135deg, var(--gold) 0%, #FFA751 100%);
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+}
+
+/* Cabecera del Paquete */
+.package-header {
+  margin-bottom: 24px;
+}
+
+.package-icon-container {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--border-radius-md);
+  background-color: rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: var(--dollar-green);
+  border: 1px solid var(--border-light);
+  transition: all var(--transition-fast);
+}
+
+.package-card:hover .package-icon-container {
+  color: var(--text-light);
+  background-color: var(--dollar-green);
+  border-color: var(--dollar-green);
+}
+
+.package-card.featured .package-icon-container {
+  color: var(--gold);
+  border-color: rgba(255, 215, 0, 0.2);
+}
+
+.package-card.featured:hover .package-icon-container {
+  color: #000;
+  background-color: var(--gold);
+  border-color: var(--gold);
+}
+
+.package-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.package-title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: var(--text-light);
+  margin-bottom: 4px;
+  transition: color var(--transition-fast);
+}
+
+.package-card[data-package="Lavado Trébol"]:hover .package-title { color: var(--dollar-green); }
+.package-card[data-package="Brillo Pot of Gold"]:hover .package-title { color: var(--gold); }
+.package-card[data-package="Detallado Arcoíris"]:hover .package-title { color: var(--ferrari-red); }
+
+.package-subtitle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Precio */
+.package-price {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 30px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.package-price .currency {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-right: 4px;
+}
+
+.package-price .amount {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--text-light);
+}
+
+.package-price .period {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-left: 8px;
+  text-transform: uppercase;
+}
+
+/* Características */
+.package-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-grow: 1;
+}
+
+.package-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: #B2C0B8;
+}
+
+.package-features strong {
+  color: var(--text-light);
+}
+
+.check-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--dollar-green);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.package-card.featured .check-icon {
+  color: var(--gold);
+}
+
+/* Botón de compra de paquete */
+.btn-package {
+  width: 100%;
+  background-color: transparent;
+  color: var(--text-light);
+  border: 2px solid var(--border-light);
+}
+
+.package-card[data-package="Lavado Trébol"] .btn-package:hover {
+  background-color: var(--dollar-green);
+  border-color: var(--dollar-green);
+  color: var(--text-light);
+}
+
+.package-card[data-package="Detallado Arcoíris"] .btn-package:hover {
+  background-color: var(--ferrari-red);
+  border-color: var(--ferrari-red);
+  color: var(--text-light);
+}
+
+.package-card.featured .btn-choose-package {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Sección de Ubicación y Contacto
+   ========================================================================== */
+.contact-section {
+  background-color: var(--bg-dark);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.contact-intro {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.contact-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--border-radius-md);
+  background-color: rgba(0, 168, 107, 0.1);
+  border: 1px solid var(--border-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dollar-green);
+  flex-shrink: 0;
+}
+
+.contact-text h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-light);
+  margin-bottom: 6px;
+}
+
+.contact-text p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.contact-link {
+  transition: color var(--transition-fast);
+}
+
+.contact-link:hover {
+  color: var(--dollar-green);
+}
+
+/* Redes Sociales */
+.social-networks-container h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-light);
+  margin-bottom: 16px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.social-icon:hover {
+  color: var(--text-light);
+  transform: translateY(-3px);
+}
+
+.social-icon[aria-label="Facebook"]:hover { background-color: #1877F2; border-color: #1877F2; }
+.social-icon[aria-label="Instagram"]:hover { background-color: #E1306C; border-color: #E1306C; }
+.social-icon[aria-label="TikTok"]:hover { background-color: #000000; border-color: #25F4EE; box-shadow: 2px 2px 0 #FE2C55, -2px -2px 0 #25F4EE; }
+
+/* Mapa Mockup */
+.map-mockup-container {
+  perspective: 1000px;
+}
+
+.map-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transition: transform var(--transition-smooth);
+}
+
+.map-card:hover {
+  transform: rotateY(-3deg) rotateX(2deg);
+}
+
+.map-graphic {
+  position: relative;
+  background-color: #0D110F;
+  height: 250px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.map-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.map-glow {
+  animation: pulsePin 2s infinite ease-in-out;
+  transform-origin: 200px 150px;
+}
+
+@keyframes pulsePin {
+  0% { transform: scale(0.8); opacity: 0.6; }
+  50% { transform: scale(1.6); opacity: 0.1; }
+  100% { transform: scale(0.8); opacity: 0.6; }
+}
+
+.map-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background-color: rgba(7, 9, 8, 0.9);
+  border: 1px solid var(--dollar-green);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.map-badge-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--dollar-green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--dollar-green);
+}
+
+.map-details {
+  padding: 24px;
+}
+
+.map-address-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.map-action-btn {
+  width: 100%;
+  font-size: 0.85rem;
+  padding: 12px 20px;
+}
+
+.external-link-icon {
+  margin-left: 4px;
+}
+
+
+
+/* ==========================================================================
+   Pie de Página (Footer)
+   ========================================================================== */
+.main-footer {
+  background-color: #070908;
+  border-top: 1px solid var(--border-light);
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-logo {
+  width: 36px;
+  height: 36px;
+}
+
+.footer-tagline {
+  color: var(--text-muted);
+  max-width: 450px;
+  font-size: 0.95rem;
+}
+
+.footer-copyright {
+  color: #4a544f;
+  font-size: 0.85rem;
+  margin-top: 20px;
+}
+
+/* ==========================================================================
+   Estilos Responsivos
+   ========================================================================== */
+
+/* Dispositivos Grandes (Pantallas medianas y tablets horizontales) */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 4.5rem;
+  }
+  
+  .packages-grid {
+    gap: 20px;
+  }
+  
+  .package-card {
+    padding: 30px 20px;
+  }
+  
+  .contact-grid {
+    gap: 40px;
+  }
+}
+
+/* Dispositivos Medianos (Tablets verticales) */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+
+  /* Barra de Navegación Móvil */
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    background-color: rgba(9, 12, 11, 0.98);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid var(--border-light);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 60px;
+    gap: 40px;
+    transform: translateX(100%);
+    transition: transform var(--transition-smooth);
+    z-index: 999;
+  }
+  
+  .nav-links.active {
+    transform: translateX(0);
+  }
+  
+  .nav-link {
+    font-size: 1.25rem;
+  }
+  
+  .nav-btn-mobile {
+    display: inline-flex;
+    margin-top: 20px;
+    background-color: var(--ferrari-red);
+    color: var(--text-light);
+    padding: 14px 40px;
+    border-radius: var(--border-radius-md);
+    font-weight: 700;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px var(--ferrari-red-glow);
+  }
+  
+  /* Slider */
+  .shine-slider-container {
+    aspect-ratio: 4/3;
+  }
+  
+  /* Paquetes */
+  .packages-grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin: 0 auto;
+    gap: 40px;
+  }
+  
+  .package-card.featured {
+    transform: none;
+  }
+  
+  .package-card.featured:hover {
+    transform: translateY(-6px);
+  }
+
+  /* Contacto */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .map-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+/* Dispositivos Pequeños (Móviles) */
+@media (max-width: 480px) {
+  .section-container {
+    padding: 60px 16px;
+  }
+  
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  
+  .brand-name {
+    font-size: 1.5rem;
+  }
+  
+  .leprechaun-logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .shine-slider-container {
+    aspect-ratio: 1/1; /* Cuadrado para pantallas muy pequeñas */
+  }
+  
+  .layer-label {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    bottom: 12px;
+  }
+  
+  .label-before { right: 12px; }
+  .label-after { left: 12px; }
+  
+  .handle-button {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .handle-arrows {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .package-card {
+    padding: 30px 20px;
+  }
+}
+
+/* Respeto por preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  .bubble, .sparkle, .wheel, .arrows span, .map-glow {
+    animation: none !important;
+  }
+  
+  .sparkle {
+    opacity: 0.8;
+  }
+  
+  .btn, .package-card, .social-icon, .map-card {
+    transition: none !important;
+  }
+  
+  .btn:hover, .package-card:hover, .social-icon:hover, .map-card:hover {
+    transform: none !important;
+  }
+}
